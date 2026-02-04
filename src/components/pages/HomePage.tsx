@@ -234,7 +234,7 @@ export default function HomePage() {
       {/* ---------------------------------------------------------------------------
           NARRATIVE SECTION: SPLIT LAYOUT
       --------------------------------------------------------------------------- */}
-      <section className="w-full py-32 bg-white relative overflow-hidden">
+      <section className="w-full py-32 bg-card relative overflow-hidden">
         <div className="max-w-[120rem] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div className="order-2 lg:order-1 relative">
@@ -290,7 +290,7 @@ export default function HomePage() {
       {/* ---------------------------------------------------------------------------
           PROCESS SECTION: VERTICAL STICKY FLOW
       --------------------------------------------------------------------------- */}
-      <section className="w-full py-32 bg-gray-50 relative">
+      <section className="w-full py-32 bg-muted relative">
         <div className="max-w-[100rem] mx-auto px-6">
           <div className="text-center mb-24">
             <span className="text-accent-teal font-bold tracking-widest uppercase text-sm mb-4 block">Workflow</span>
@@ -360,7 +360,7 @@ export default function HomePage() {
       {/* ---------------------------------------------------------------------------
           CORE ACTIONS: FULL BLEED CARDS
       --------------------------------------------------------------------------- */}
-      <section className="w-full py-32 px-6 bg-white">
+      <section className="w-full py-32 px-6 bg-card">
         <div className="max-w-[120rem] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 h-auto md:h-[600px]">
 
