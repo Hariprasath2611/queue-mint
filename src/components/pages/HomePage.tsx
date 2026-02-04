@@ -415,9 +415,9 @@ export default function HomePage() {
       {/* ---------------------------------------------------------------------------
           DASHBOARD TEASER
       --------------------------------------------------------------------------- */}
-      <section className="w-full py-24 bg-gray-50">
+      <section className="w-full py-24 bg-muted">
         <div className="max-w-[100rem] mx-auto px-6">
-          <div className="bg-white rounded-[3rem] p-12 md:p-20 shadow-xl border border-gray-100 relative overflow-hidden">
+          <div className="bg-card rounded-[3rem] p-12 md:p-20 shadow-xl border border-border relative overflow-hidden">
             <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-gray-50 to-transparent hidden lg:block" />
 
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
