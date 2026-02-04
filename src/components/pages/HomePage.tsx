@@ -24,7 +24,7 @@ export default function HomePage() {
     const { items } = await BaseCrudService.getAll<QueueTokens>('tokens', {}, { limit: 100 });
     const active = items.filter(t => t.isActive && t.status === 'Waiting');
     setActiveTokens(active.length);
-    
+
     if (active.length > 0) {
       const totalWait = active.reduce((sum, t) => sum + (t.estimatedWaitTime || 0), 0);
       setAvgWaitTime(Math.round(totalWait / active.length));
@@ -61,10 +61,10 @@ export default function HomePage() {
           filter: blur(40px);
         }
         .glass-panel {
-          background: rgba(255, 255, 255, 0.7);
+          background: hsl(var(--card) / 0.7);
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
-          border: 1px solid rgba(255, 255, 255, 0.5);
+          border: 1px solid hsl(var(--border) / 0.5);
         }
         .text-gradient {
           background: linear-gradient(135deg, #00C6FF 0%, #00E5FF 100%);
@@ -85,14 +85,14 @@ export default function HomePage() {
         {/* Dynamic Background */}
         <div className="absolute inset-0 aurora-bg z-0" />
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] z-0 mix-blend-multiply" />
-        
+
         {/* Floating Abstract Shapes */}
-        <motion.div 
+        <motion.div
           animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
           className="absolute top-1/4 left-[10%] w-64 h-64 rounded-full bg-primary/5 blur-3xl z-0"
         />
-        <motion.div 
+        <motion.div
           animate={{ y: [0, 30, 0], rotate: [0, -5, 0] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
           className="absolute bottom-1/4 right-[10%] w-96 h-96 rounded-full bg-secondary/5 blur-3xl z-0"
@@ -100,11 +100,11 @@ export default function HomePage() {
 
         <div className="relative z-10 w-full max-w-[120rem] mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Text Content */}
-          <motion.div 
+          <motion.div
             style={{ y: yHeroText, opacity: opacityHero }}
             className="lg:col-span-7 text-center lg:text-left"
           >
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
@@ -121,7 +121,7 @@ export default function HomePage() {
               Smart <br />
               <span className="text-gradient">Queue System</span>
             </h1>
-            
+
             <p className="font-paragraph text-xl md:text-2xl text-foreground/60 max-w-2xl mx-auto lg:mx-0 leading-relaxed mb-12">
               Experience the serenity of organized service. Book your token, schedule appointments, and reclaim your time with our intelligent queue management.
             </p>
@@ -133,7 +133,7 @@ export default function HomePage() {
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </Link>
-              
+
               <Link to="/appointments" className="group relative overflow-hidden rounded-full bg-white border border-foreground/10 px-10 py-5 font-heading font-medium text-lg text-foreground transition-all hover:bg-gray-50 hover:border-foreground/20">
                 <span className="flex items-center gap-3">
                   <Calendar className="w-5 h-5 text-accent-teal" /> Book Appointment
@@ -143,7 +143,7 @@ export default function HomePage() {
           </motion.div>
 
           {/* Hero Visual / 3D Element Placeholder */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
@@ -152,14 +152,14 @@ export default function HomePage() {
             <div className="relative w-full aspect-square max-w-lg mx-auto">
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-secondary/20 rounded-full blur-3xl animate-pulse" />
               <div className="relative z-10 w-full h-full rounded-[3rem] overflow-hidden shadow-2xl border border-white/40 glass-panel p-2">
-                 <Image 
-                  src="https://static.wixstatic.com/media/5283f4_55e1c2b38a0642789e807c28c5abfb32~mv2.png?originWidth=576&originHeight=576" 
-                  alt="Smart Queue Interface Visualization" 
+                <Image
+                  src="https://static.wixstatic.com/media/5283f4_55e1c2b38a0642789e807c28c5abfb32~mv2.png?originWidth=576&originHeight=576"
+                  alt="Smart Queue Interface Visualization"
                   className="w-full h-full object-cover rounded-[2.5rem]"
                 />
-                
+
                 {/* Floating Badge */}
-                <motion.div 
+                <motion.div
                   animate={{ y: [0, -10, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                   className="absolute -bottom-8 -left-8 bg-white p-6 rounded-2xl shadow-xl border border-gray-100 flex items-center gap-4"
@@ -183,7 +183,7 @@ export default function HomePage() {
       --------------------------------------------------------------------------- */}
       <section className="relative z-20 -mt-20 mb-32 px-6">
         <div className="max-w-[100rem] mx-auto">
-          <motion.div 
+          <motion.div
             initial={{ y: 50, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -240,9 +240,9 @@ export default function HomePage() {
             <div className="order-2 lg:order-1 relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-[2.5rem] transform -rotate-2" />
               <div className="relative rounded-[2rem] overflow-hidden h-[600px] shadow-2xl">
-                <Image 
-                  src="https://static.wixstatic.com/media/5283f4_20d354970c7843e08e42c3adfa7f2931~mv2.png?originWidth=960&originHeight=576" 
-                  alt="Serene waiting area concept" 
+                <Image
+                  src="https://static.wixstatic.com/media/5283f4_20d354970c7843e08e42c3adfa7f2931~mv2.png?originWidth=960&originHeight=576"
+                  alt="Serene waiting area concept"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
@@ -260,14 +260,14 @@ export default function HomePage() {
               <p className="font-paragraph text-xl text-foreground/70 mb-8 leading-relaxed">
                 Traditional waiting rooms are a thing of the past. Our intelligent system allows you to join the queue remotely, track your progress in real-time, and arrive exactly when you're needed.
               </p>
-              
+
               <ul className="space-y-6 mb-10">
                 {[
                   "Real-time position tracking via mobile",
                   "Instant SMS and email notifications",
                   "Seamless appointment integration"
                 ].map((item, i) => (
-                  <motion.li 
+                  <motion.li
                     key={i}
                     initial={{ opacity: 0, x: 20 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -301,9 +301,9 @@ export default function HomePage() {
             {/* Sticky Visuals */}
             <div className="hidden lg:block lg:col-span-5 relative">
               <div className="sticky top-32 h-[600px] w-full rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/50">
-                 <Image 
-                  src="https://static.wixstatic.com/media/5283f4_301e5c5bf82d46a28ab952a087d23961~mv2.png?originWidth=448&originHeight=576" 
-                  alt="App Interface Workflow" 
+                <Image
+                  src="https://static.wixstatic.com/media/5283f4_301e5c5bf82d46a28ab952a087d23961~mv2.png?originWidth=448&originHeight=576"
+                  alt="App Interface Workflow"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-primary/10 mix-blend-overlay" />
@@ -332,7 +332,7 @@ export default function HomePage() {
                   icon: <Users className="w-8 h-8" />
                 }
               ].map((item, index) => (
-                <motion.div 
+                <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -363,13 +363,13 @@ export default function HomePage() {
       <section className="w-full py-32 px-6 bg-white">
         <div className="max-w-[120rem] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 h-auto md:h-[600px]">
-            
+
             {/* Card 1: Token */}
             <Link to="/queue" className="group relative rounded-[2.5rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-cyan-500 opacity-90 z-10 transition-opacity group-hover:opacity-100" />
-              <Image 
-                src="https://static.wixstatic.com/media/5283f4_afecca163b594c64831f9b470fe2bef6~mv2.png?originWidth=960&originHeight=576" 
-                alt="Queue Token" 
+              <Image
+                src="https://static.wixstatic.com/media/5283f4_afecca163b594c64831f9b470fe2bef6~mv2.png?originWidth=960&originHeight=576"
+                alt="Queue Token"
                 className="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-50 group-hover:scale-110 transition-transform duration-700"
               />
               <div className="relative z-20 h-full flex flex-col justify-between p-12 text-white">
@@ -389,9 +389,9 @@ export default function HomePage() {
             {/* Card 2: Appointment */}
             <Link to="/appointments" className="group relative rounded-[2.5rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
               <div className="absolute inset-0 bg-gradient-to-br from-teal-600 to-emerald-500 opacity-90 z-10 transition-opacity group-hover:opacity-100" />
-              <Image 
-                src="https://static.wixstatic.com/media/5283f4_3d7ca8181fd347e0a5a13808e97d103a~mv2.png?originWidth=960&originHeight=576" 
-                alt="Appointment Booking" 
+              <Image
+                src="https://static.wixstatic.com/media/5283f4_3d7ca8181fd347e0a5a13808e97d103a~mv2.png?originWidth=960&originHeight=576"
+                alt="Appointment Booking"
                 className="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-50 group-hover:scale-110 transition-transform duration-700"
               />
               <div className="relative z-20 h-full flex flex-col justify-between p-12 text-white">
@@ -419,7 +419,7 @@ export default function HomePage() {
         <div className="max-w-[100rem] mx-auto px-6">
           <div className="bg-white rounded-[3rem] p-12 md:p-20 shadow-xl border border-gray-100 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-gray-50 to-transparent hidden lg:block" />
-            
+
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div>
                 <h2 className="font-heading text-4xl md:text-5xl font-bold mb-6">Your Personal Command Center</h2>
@@ -435,7 +435,7 @@ export default function HomePage() {
                   </Link>
                 </div>
               </div>
-              
+
               <div className="relative">
                 <div className="grid grid-cols-2 gap-4">
                   <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100">
