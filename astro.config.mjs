@@ -3,34 +3,16 @@ import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
 import vercel from "@astrojs/vercel";
-import customErrorOverlayPlugin from "./vite-error-overlay-plugin.js";
-
-const isBuild = process.env.NODE_ENV == "production";
 
 // https://astro.build/config
 export default defineConfig({
   output: "server",
   adapter: vercel(),
   integrations: [
-    {
-      name: "framewire",
-      hooks: {
-        "astro:config:setup": ({ injectScript, command }) => {
-          if (command === "dev") {
-            injectScript(
-              "page",
-              `import loadFramewire from "framewire.js";
-              loadFramewire(true);`
-            );
-          }
-        },
-      },
-    },
     tailwind(),
     react(),
   ],
   vite: {
-    plugins: [customErrorOverlayPlugin()],
     cacheDir: 'node_modules/.cache/.vite',
     optimizeDeps: {
       include: [
