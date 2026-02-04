@@ -1,3 +1,6 @@
+import containerQueries from '@tailwindcss/container-queries';
+import typography from '@tailwindcss/typography';
+
 /** @type {import('tailwindcss').Config} */
 export default {
     content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}', './public/**/*.html'],
@@ -40,5 +43,5 @@ export default {
     future: {
         hoverOnlyWhenSupported: true,
     },
-    plugins: [require('@tailwindcss/container-queries'), require('@tailwindcss/typography')],
+    plugins: [containerQueries, typography],
 }
