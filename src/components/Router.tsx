@@ -20,7 +20,7 @@ function Layout() {
   );
 }
 
-const router = createBrowserRouter([
+const routes = [
   {
     path: "/",
     element: <Layout />,
@@ -81,11 +81,20 @@ const router = createBrowserRouter([
       },
     ],
   },
-], {
-  basename: import.meta.env.BASE_NAME,
-});
+];
+
+// Initialize the router only in the browser to avoid server-side crashes during import
+const router = typeof window !== 'undefined'
+  ? createBrowserRouter(routes, {
+    basename: import.meta.env.BASE_NAME,
+  })
+  : null;
 
 export default function AppRouter() {
+  if (!router) {
+    return null; // Return nothing during server-side initial parse
+  }
+
   return (
     <MemberProvider>
       <RouterProvider router={router} />
