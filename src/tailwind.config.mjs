@@ -4,6 +4,7 @@ import typography from '@tailwindcss/typography';
 /** @type {import('tailwindcss').Config} */
 export default {
     content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}', './public/**/*.html'],
+    darkMode: 'class',
     theme: {
         extend: {
             fontSize: {
@@ -26,17 +27,47 @@ export default {
                 paragraph: "poppins-v2"
             },
             colors: {
-                'accent-teal': '#00A8A8',
-                'card-background': 'rgba(255, 255, 255, 0.8)',
-                'soft-shadow': 'rgba(0, 0, 0, 0.05)',
-                destructive: '#dc3545',
-                'destructive-foreground': '#FFFFFF',
-                background: '#F8F9FA',
-                secondary: '#00E5FF',
-                foreground: '#343A40',
-                'secondary-foreground': '#000000',
-                'primary-foreground': '#FFFFFF',
-                primary: '#00C6FF'
+                border: "hsl(var(--border))",
+                input: "hsl(var(--input))",
+                ring: "hsl(var(--ring))",
+                background: "hsl(var(--background))",
+                foreground: "hsl(var(--foreground))",
+                primary: {
+                    DEFAULT: "hsl(var(--primary))",
+                    foreground: "hsl(var(--primary-foreground))",
+                },
+                secondary: {
+                    DEFAULT: "hsl(var(--secondary))",
+                    foreground: "hsl(var(--secondary-foreground))",
+                },
+                destructive: {
+                    DEFAULT: "hsl(var(--destructive))",
+                    foreground: "hsl(var(--destructive-foreground))",
+                },
+                muted: {
+                    DEFAULT: "hsl(var(--muted))",
+                    foreground: "hsl(var(--muted-foreground))",
+                },
+                accent: {
+                    DEFAULT: "hsl(var(--accent))",
+                    foreground: "hsl(var(--accent-foreground))",
+                },
+                popover: {
+                    DEFAULT: "hsl(var(--popover))",
+                    foreground: "hsl(var(--popover-foreground))",
+                },
+                card: {
+                    DEFAULT: "hsl(var(--card))",
+                    foreground: "hsl(var(--card-foreground))",
+                },
+                'accent-teal': "hsl(var(--accent))",
+                'card-background': "hsl(var(--card) / 0.8)",
+                'soft-shadow': "hsl(var(--foreground) / 0.05)",
+            },
+            borderRadius: {
+                lg: "var(--radius)",
+                md: "calc(var(--radius) - 2px)",
+                sm: "calc(var(--radius) - 4px)",
             },
         },
     },
