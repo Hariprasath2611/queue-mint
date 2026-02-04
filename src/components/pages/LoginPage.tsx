@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Users, Zap, ArrowRight, Shield, Smartphone } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { useMember } from '@/integrations/members/providers/MemberContext';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -11,6 +12,7 @@ import { Label } from '@/components/ui/label';
 
 export default function LoginPage() {
   const navigate = useNavigate();
+  const { actions } = useMember();
   const [selectedRole, setSelectedRole] = useState<'user' | 'staff' | null>(null);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -24,7 +26,7 @@ export default function LoginPage() {
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!email || !password) {
       setError('Please fill in all fields');
       return;
@@ -36,10 +38,13 @@ export default function LoginPage() {
     try {
       // Simulate login delay
       await new Promise(resolve => setTimeout(resolve, 1000));
-      
+
       // Store role in localStorage for session management
       localStorage.setItem('userRole', selectedRole || 'user');
       localStorage.setItem('userEmail', email);
+
+      // Trigger global login
+      actions.login();
 
       // Navigate based on role
       if (selectedRole === 'staff') {
@@ -64,7 +69,7 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       <main className="pt-24 pb-16">
         <div className="max-w-[100rem] mx-auto px-6">
           {!selectedRole ? (
@@ -103,7 +108,7 @@ export default function LoginPage() {
                         Join the queue, get a digital token, and track your position in real-time from anywhere.
                       </p>
                     </div>
-                    
+
                     <div className="space-y-4">
                       <ul className="space-y-3">
                         <li className="flex items-center gap-3 text-foreground/60">
@@ -145,7 +150,7 @@ export default function LoginPage() {
                         Manage the queue, generate tokens for customers, and monitor service operations.
                       </p>
                     </div>
-                    
+
                     <div className="space-y-4">
                       <ul className="space-y-3">
                         <li className="flex items-center gap-3 text-foreground/60">
@@ -190,13 +195,13 @@ export default function LoginPage() {
                   >
                     ← Back to Role Selection
                   </button>
-                  
+
                   <h2 className="font-heading text-3xl mb-2">
                     {selectedRole === 'staff' ? 'Staff Login' : 'User Login'}
                   </h2>
                   <p className="font-paragraph text-foreground/60">
-                    {selectedRole === 'staff' 
-                      ? 'Sign in to manage the queue' 
+                    {selectedRole === 'staff'
+                      ? 'Sign in to manage the queue'
                       : 'Sign in to book your token'}
                   </p>
                 </div>
