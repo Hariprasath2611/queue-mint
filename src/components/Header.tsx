@@ -1,5 +1,6 @@
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Home, Info, Building2, LayoutDashboard, LogIn, LogOut } from 'lucide-react';
+import { Menu, X, Home, Info, Building2, LayoutDashboard, LogIn, LogOut, Clock } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useMember } from '@/integrations/members/providers/MemberContext';
 
@@ -49,8 +50,8 @@ export default function Header() {
                   key={item.path}
                   to={item.path}
                   className={`font-paragraph text-base flex items-center gap-2 transition-colors ${isActive(item.path)
-                      ? 'text-primary font-medium'
-                      : 'text-foreground/70 hover:text-primary'
+                    ? 'text-primary font-medium'
+                    : 'text-foreground/70 hover:text-primary'
                     }`}
                 >
                   <Icon className="w-4 h-4" />
@@ -97,8 +98,8 @@ export default function Header() {
                       to={item.path}
                       onClick={() => setIsMenuOpen(false)}
                       className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-colors ${isActive(item.path)
-                          ? 'bg-gradient-to-r from-primary to-secondary text-primary-foreground'
-                          : 'text-foreground/70 hover:bg-foreground/5'
+                        ? 'bg-gradient-to-r from-primary to-secondary text-primary-foreground'
+                        : 'text-foreground/70 hover:bg-foreground/5'
                         }`}
                     >
                       <Icon className="w-5 h-5" />
