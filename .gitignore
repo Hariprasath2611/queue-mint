@@ -10,6 +10,7 @@ pnpm-debug.log*
 # Misc
 .DS_Store
 out
+.vercel
 
 # build output
 # generated types
