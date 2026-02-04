@@ -2,6 +2,7 @@
 import { MemberProvider } from '@/integrations';
 import { createBrowserRouter, RouterProvider, Navigate, Outlet } from 'react-router-dom';
 import { ScrollToTop } from '@/lib/scroll-to-top';
+import { ThemeProvider } from '@/components/providers/ThemeProvider';
 import ErrorPage from '@/integrations/errorHandlers/ErrorPage';
 import HomePage from '@/components/pages/HomePage';
 import QueuePage from '@/components/pages/QueuePage';
@@ -113,8 +114,10 @@ export default function AppRouter() {
   }
 
   return (
-    <MemberProvider>
-      <RouterProvider router={router} />
-    </MemberProvider>
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+      <MemberProvider>
+        <RouterProvider router={router} />
+      </MemberProvider>
+    </ThemeProvider>
   );
 }
