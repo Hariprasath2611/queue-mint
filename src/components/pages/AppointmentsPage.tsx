@@ -48,7 +48,7 @@ export default function AppointmentsPage() {
       BaseCrudService.getAll<Appointments>('appointments', {}, { limit: 100 }),
       BaseCrudService.getAll<Departments>('departments', {}, { limit: 50 }),
     ]);
-    
+
     const upcomingAppointments = appointmentsResult.items
       .filter(a => a.status !== 'Completed' && a.status !== 'Cancelled')
       .sort((a, b) => {
@@ -56,7 +56,7 @@ export default function AppointmentsPage() {
         const dateB = new Date(b.appointmentDate || 0).getTime();
         return dateA - dateB;
       });
-    
+
     setAppointments(upcomingAppointments);
     setDepartments(deptResult.items);
     setIsLoading(false);
@@ -79,7 +79,7 @@ export default function AppointmentsPage() {
     };
 
     await BaseCrudService.create('appointments', appointmentData);
-    
+
     setShowSuccess(true);
     setSelectedDate(undefined);
     setSelectedTime('');
@@ -111,7 +111,7 @@ export default function AppointmentsPage() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       <main className="pt-24 pb-16">
         <div className="max-w-[100rem] mx-auto px-6">
           <motion.div
@@ -135,7 +135,7 @@ export default function AppointmentsPage() {
             >
               <Card className="p-8 bg-card-background backdrop-blur-sm">
                 <h2 className="font-heading text-2xl mb-6">Book Appointment</h2>
-                
+
                 {showSuccess && (
                   <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
@@ -212,7 +212,7 @@ export default function AppointmentsPage() {
                       selected={selectedDate}
                       onSelect={setSelectedDate}
                       disabled={(date) => date < new Date()}
-                      className="rounded-xl border bg-white"
+                      className="rounded-xl border bg-card"
                     />
                   </div>
 
@@ -287,7 +287,7 @@ export default function AppointmentsPage() {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: index * 0.05 }}
-                        className="p-6 bg-white rounded-2xl shadow-sm border border-foreground/5 hover:shadow-md transition-shadow"
+                        className="p-6 bg-card rounded-2xl shadow-sm border border-foreground/5 hover:shadow-md transition-shadow"
                       >
                         <div className="flex items-start justify-between mb-4">
                           <div>
@@ -298,7 +298,7 @@ export default function AppointmentsPage() {
                             </div>
                           </div>
                         </div>
-                        
+
                         <div className="space-y-2">
                           <div className="flex items-center gap-2 text-foreground/70">
                             <CalendarIcon className="w-4 h-4" />

@@ -36,12 +36,12 @@ export default function GenerateTokenPage() {
     // Check if user is logged in as staff
     const role = localStorage.getItem('userRole');
     const email = localStorage.getItem('userEmail');
-    
+
     if (role !== 'staff') {
       navigate('/login');
       return;
     }
-    
+
     setUserEmail(email || '');
     loadData();
     const interval = setInterval(loadData, 10000);
@@ -53,11 +53,11 @@ export default function GenerateTokenPage() {
       BaseCrudService.getAll<QueueTokens>('tokens', {}, { limit: 100 }),
       BaseCrudService.getAll<Departments>('departments', {}, { limit: 50 }),
     ]);
-    
+
     const activeTokens = tokensResult.items
       .filter(t => t.isActive)
       .sort((a, b) => (a.queuePosition || 0) - (b.queuePosition || 0));
-    
+
     setTokens(activeTokens);
     setDepartments(deptResult.items);
     setIsLoading(false);
@@ -72,7 +72,7 @@ export default function GenerateTokenPage() {
     const activeTokensInDept = tokens.filter(
       t => t.status === 'Waiting' && t.tokenNumber?.startsWith(selectedDepartment.substring(0, 3).toUpperCase())
     );
-    
+
     const nextPosition = activeTokensInDept.length + 1;
     const tokenNumber = `${selectedDepartment.substring(0, 3).toUpperCase()}-${String(nextPosition).padStart(3, '0')}`;
     const estimatedWait = nextPosition * 15;
@@ -143,7 +143,7 @@ export default function GenerateTokenPage() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       <main className="pt-24 pb-16">
         <div className="max-w-[100rem] mx-auto px-6">
           {/* Header with Logout */}
@@ -184,7 +184,7 @@ export default function GenerateTokenPage() {
             >
               <Card className="p-8 bg-card-background backdrop-blur-sm sticky top-24">
                 <h2 className="font-heading text-2xl mb-6">Generate New Token</h2>
-                
+
                 {showSuccess && newToken && (
                   <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
@@ -294,7 +294,7 @@ export default function GenerateTokenPage() {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: index * 0.05 }}
-                        className="p-6 bg-white rounded-2xl shadow-sm border border-foreground/5 hover:shadow-md transition-shadow"
+                        className="p-6 bg-card rounded-2xl shadow-sm border border-foreground/5 hover:shadow-md transition-shadow"
                       >
                         <div className="flex items-center justify-between mb-4">
                           <div className="flex items-center gap-4">
@@ -322,14 +322,14 @@ export default function GenerateTokenPage() {
                         <div className="flex gap-2">
                           <button
                             onClick={() => copyToClipboard(token.tokenNumber || '', token._id)}
-                            className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors text-sm font-medium"
+                            className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-muted hover:bg-muted/80 transition-colors text-sm font-medium"
                           >
                             <Copy className="w-4 h-4" />
                             {copiedTokenId === token._id ? 'Copied!' : 'Copy'}
                           </button>
                           <button
                             onClick={() => window.print()}
-                            className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors text-sm font-medium"
+                            className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-muted hover:bg-muted/80 transition-colors text-sm font-medium"
                           >
                             <Printer className="w-4 h-4" />
                             Print
@@ -375,7 +375,7 @@ export default function GenerateTokenPage() {
                 <div>
                   <p className="font-paragraph text-sm text-foreground/60">Avg Wait Time</p>
                   <p className="font-heading text-3xl font-bold text-foreground">
-                    {tokens.length > 0 
+                    {tokens.length > 0
                       ? Math.round(tokens.reduce((sum, t) => sum + (t.estimatedWaitTime || 0), 0) / tokens.length)
                       : 0} min
                   </p>

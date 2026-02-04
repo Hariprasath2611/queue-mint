@@ -65,7 +65,7 @@ export default function DashboardPage() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       <main className="pt-24 pb-16">
         <div className="max-w-[100rem] mx-auto px-6">
           <motion.div
@@ -102,7 +102,7 @@ export default function DashboardPage() {
                           <span className="font-paragraph text-sm">{activeToken.status}</span>
                         </div>
                       </div>
-                      
+
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         <div>
                           <p className="font-paragraph text-sm opacity-80 mb-2">Token Number</p>
@@ -188,7 +188,7 @@ export default function DashboardPage() {
                         {upcomingAppointments.map((appointment) => (
                           <div
                             key={appointment._id}
-                            className="p-6 bg-white rounded-2xl shadow-sm border border-foreground/5"
+                            className="p-6 bg-card rounded-2xl shadow-sm border border-foreground/5"
                           >
                             <div className="flex items-start justify-between">
                               <div>
@@ -232,7 +232,7 @@ export default function DashboardPage() {
                           completedTokens.map((token) => (
                             <div
                               key={token._id}
-                              className="p-4 bg-white rounded-xl border border-foreground/5 flex items-center justify-between"
+                              className="p-4 bg-card rounded-xl border border-foreground/5 flex items-center justify-between"
                             >
                               <div className="flex items-center gap-3">
                                 <CheckCircle className="w-5 h-5 text-green-600" />
@@ -268,7 +268,7 @@ export default function DashboardPage() {
                           completedAppointments.map((appointment) => (
                             <div
                               key={appointment._id}
-                              className="p-4 bg-white rounded-xl border border-foreground/5 flex items-center justify-between"
+                              className="p-4 bg-card rounded-xl border border-foreground/5 flex items-center justify-between"
                             >
                               <div className="flex items-center gap-3">
                                 <CheckCircle className="w-5 h-5 text-green-600" />
