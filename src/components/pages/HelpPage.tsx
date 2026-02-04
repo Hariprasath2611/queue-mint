@@ -30,7 +30,7 @@ export default function HelpPage() {
     setExpandedId(expandedId === id ? null : id);
   };
 
-  const filteredFaqs = faqs.filter(faq => 
+  const filteredFaqs = faqs.filter(faq =>
     faq.question?.toLowerCase().includes(searchQuery.toLowerCase()) ||
     faq.answer?.toLowerCase().includes(searchQuery.toLowerCase()) ||
     faq.category?.toLowerCase().includes(searchQuery.toLowerCase())
@@ -41,7 +41,7 @@ export default function HelpPage() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       <main className="pt-24 pb-16">
         <div className="max-w-[100rem] mx-auto px-6">
           <motion.div
@@ -141,7 +141,7 @@ export default function HelpPage() {
             className="max-w-4xl mx-auto min-h-[400px]"
           >
             <h2 className="font-heading text-3xl mb-8 text-center">Frequently Asked Questions</h2>
-            
+
             {isLoading ? (
               <div className="flex items-center justify-center py-16">
                 <LoadingSpinner />
@@ -225,7 +225,7 @@ export default function HelpPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
                   href="mailto:support@smartqueue.com"
-                  className="px-8 py-4 rounded-full bg-white text-primary font-heading text-base font-semibold hover:scale-105 transition-transform"
+                  className="px-8 py-4 rounded-full bg-primary-foreground text-primary font-heading text-base font-semibold hover:scale-105 transition-transform"
                 >
                   Email Support
                 </a>
