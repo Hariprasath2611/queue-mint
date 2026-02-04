@@ -190,7 +190,7 @@ export default function HomePage() {
             transition={{ duration: 0.8 }}
             className="glass-panel rounded-[2rem] p-8 md:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.05)]"
           >
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-gray-200/60">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-border/60">
               {/* Metric 1 */}
               <div className="flex flex-col items-center justify-center p-4">
                 <div className="flex items-center gap-3 mb-2 text-accent-teal">
