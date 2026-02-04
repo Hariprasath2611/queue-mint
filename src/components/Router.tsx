@@ -10,6 +10,8 @@ import DashboardPage from '@/components/pages/DashboardPage';
 import HelpPage from '@/components/pages/HelpPage';
 import LoginPage from '@/components/pages/LoginPage';
 import GenerateTokenPage from '@/components/pages/GenerateTokenPage';
+import AboutPage from '@/components/pages/AboutPage';
+import DepartmentsPage from '@/components/pages/DepartmentsPage';
 
 // Layout component that includes ScrollToTop
 function Layout() {
@@ -74,6 +76,20 @@ const routes = [
         element: <GenerateTokenPage />,
         routeMetadata: {
           pageIdentifier: 'generate-token',
+        },
+      },
+      {
+        path: "about",
+        element: <AboutPage />,
+        routeMetadata: {
+          pageIdentifier: 'about',
+        },
+      },
+      {
+        path: "departments",
+        element: <DepartmentsPage />,
+        routeMetadata: {
+          pageIdentifier: 'departments',
         },
       },
       {
