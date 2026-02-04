@@ -134,7 +134,7 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </Link>
 
-              <Link to="/appointments" className="group relative overflow-hidden rounded-full bg-white border border-foreground/10 px-10 py-5 font-heading font-medium text-lg text-foreground transition-all hover:bg-gray-50 hover:border-foreground/20">
+              <Link to="/appointments" className="group relative overflow-hidden rounded-full bg-card border border-foreground/10 px-10 py-5 font-heading font-medium text-lg text-foreground transition-all hover:bg-muted hover:border-foreground/20">
                 <span className="flex items-center gap-3">
                   <Calendar className="w-5 h-5 text-accent-teal" /> Book Appointment
                 </span>
