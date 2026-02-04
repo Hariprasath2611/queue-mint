@@ -2,6 +2,7 @@
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
+import vercel from "@astrojs/vercel";
 import customErrorOverlayPlugin from "./vite-error-overlay-plugin.js";
 
 const isBuild = process.env.NODE_ENV == "production";
@@ -26,6 +27,7 @@ export default defineConfig({
     },
     tailwind(),
     react(),
+    vercel(),
   ],
   vite: {
     plugins: [customErrorOverlayPlugin()],
