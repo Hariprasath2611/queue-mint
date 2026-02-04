@@ -1,14 +1,16 @@
 import { renderers } from './renderers.mjs';
 import { c as createExports, s as serverEntrypointModule } from './chunks/_@astrojs-ssr-adapter_CoBrS_Q7.mjs';
-import { manifest } from './manifest_COq-ccmD.mjs';
+import { manifest } from './manifest_CO9Pc_7L.mjs';
 
 const serverIslandMap = new Map();;
 
 const _page0 = () => import('./pages/_image.astro.mjs');
-const _page1 = () => import('./pages/_---slug_.astro.mjs');
+const _page1 = () => import('./pages/debug.astro.mjs');
+const _page2 = () => import('./pages/_---slug_.astro.mjs');
 const pageMap = new Map([
     ["node_modules/astro/dist/assets/endpoint/generic.js", _page0],
-    ["src/pages/[...slug].astro", _page1]
+    ["src/pages/debug.astro", _page1],
+    ["src/pages/[...slug].astro", _page2]
 ]);
 
 const _manifest = Object.assign(manifest, {
@@ -19,7 +21,7 @@ const _manifest = Object.assign(manifest, {
     middleware: () => import('./_noop-middleware.mjs')
 });
 const _args = {
-    "middlewareSecret": "d903f259-01f4-4637-ad70-5329340aaf49",
+    "middlewareSecret": "79a9cc7a-7dbb-4b55-9667-bea00dd88460",
     "skewProtection": false
 };
 const _exports = createExports(_manifest, _args);

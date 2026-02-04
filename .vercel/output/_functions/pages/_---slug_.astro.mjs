@@ -2,6 +2,7 @@
 import { e as createComponent, k as renderComponent, l as renderHead, r as renderTemplate } from '../chunks/astro/server_bfTbSI7c.mjs';
 import 'piccolore';
 import { jsxs, Fragment, jsx } from 'react/jsx-runtime';
+/* empty css                                  */
 export { renderers } from '../renderers.mjs';
 
 const Head = () => {
