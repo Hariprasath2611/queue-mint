@@ -7,6 +7,8 @@ import QueuePage from '@/components/pages/QueuePage';
 import AppointmentsPage from '@/components/pages/AppointmentsPage';
 import DashboardPage from '@/components/pages/DashboardPage';
 import HelpPage from '@/components/pages/HelpPage';
+import LoginPage from '@/components/pages/LoginPage';
+import GenerateTokenPage from '@/components/pages/GenerateTokenPage';
 
 // Layout component that includes ScrollToTop
 function Layout() {
@@ -57,6 +59,20 @@ const router = createBrowserRouter([
         element: <HelpPage />,
         routeMetadata: {
           pageIdentifier: 'help',
+        },
+      },
+      {
+        path: "login",
+        element: <LoginPage />,
+        routeMetadata: {
+          pageIdentifier: 'login',
+        },
+      },
+      {
+        path: "generate-token",
+        element: <GenerateTokenPage />,
+        routeMetadata: {
+          pageIdentifier: 'generate-token',
         },
       },
       {
