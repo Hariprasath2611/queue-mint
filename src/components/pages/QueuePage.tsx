@@ -39,11 +39,11 @@ export default function QueuePage() {
       BaseCrudService.getAll<QueueTokens>('tokens', {}, { limit: 100 }),
       BaseCrudService.getAll<Departments>('departments', {}, { limit: 50 }),
     ]);
-    
+
     const activeTokens = tokensResult.items
       .filter(t => t.isActive)
       .sort((a, b) => (a.queuePosition || 0) - (b.queuePosition || 0));
-    
+
     setTokens(activeTokens);
     setDepartments(deptResult.items);
     setIsLoading(false);
@@ -58,7 +58,7 @@ export default function QueuePage() {
     const activeTokensInDept = tokens.filter(
       t => t.status === 'Waiting' && t.tokenNumber?.startsWith(selectedDepartment.substring(0, 3).toUpperCase())
     );
-    
+
     const nextPosition = activeTokensInDept.length + 1;
     const tokenNumber = `${selectedDepartment.substring(0, 3).toUpperCase()}-${String(nextPosition).padStart(3, '0')}`;
     const estimatedWait = nextPosition * 15;
@@ -117,7 +117,7 @@ export default function QueuePage() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       <main className="pt-24 pb-16">
         <div className="max-w-[100rem] mx-auto px-6">
           <motion.div
@@ -142,7 +142,7 @@ export default function QueuePage() {
             >
               <Card className="p-8 bg-card-background backdrop-blur-sm">
                 <h2 className="font-heading text-2xl mb-6">Book New Token</h2>
-                
+
                 {showSuccess && newToken && (
                   <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
@@ -252,7 +252,7 @@ export default function QueuePage() {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: index * 0.05 }}
-                        className="p-6 bg-white rounded-2xl shadow-sm border border-foreground/5 hover:shadow-md transition-shadow"
+                        className="p-6 bg-card rounded-2xl shadow-sm border border-foreground/5 hover:shadow-md transition-shadow"
                       >
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-4">
