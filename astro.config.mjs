@@ -10,6 +10,7 @@ const isBuild = process.env.NODE_ENV == "production";
 // https://astro.build/config
 export default defineConfig({
   output: "server",
+  adapter: vercel(),
   integrations: [
     {
       name: "framewire",
@@ -27,7 +28,6 @@ export default defineConfig({
     },
     tailwind(),
     react(),
-    vercel(),
   ],
   vite: {
     plugins: [customErrorOverlayPlugin()],
